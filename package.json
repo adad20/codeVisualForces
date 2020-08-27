@@ -1,0 +1,15 @@
+{
+  "name": "codevisualforces",
+  "version": "1.0.0",
+  "description": "Check your codeforces analytics by beautiful visual charts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aditya Tomar",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
