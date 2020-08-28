@@ -4,11 +4,22 @@ const axios = require('axios');
 
 const port = process.env.PORT || 5000;
 
-app.get('/userinfo/:handle', (req, res) => {
+
+// User details API (single user)
+
+app.get('/api/userinfo/:handle', async (req, res) => {
     try {
-       console.log("hello"); 
+       const userHandle = req.params.handle;
+       let profileData = await axios.get(`https://codeforces.com/api/user.info?handles=${userHandle}`);
+       
+       const { status, result } = profileData.data;
+       if(status === 'OK') {
+           res.status(200).send(result);
+       } else {
+           res.status(400).send({msg: 'User doesn\'t exist'});
+       }
     } catch (err) {
-        res.status(500).send("Server Error");
+        res.status(500).send({msg: 'User doesn\'t exist'});
     }
 });
 
