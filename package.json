@@ -4,7 +4,9 @@
   "description": "Check your codeforces analytics by beautiful visual charts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Aditya Tomar",
   "license": "MIT",
