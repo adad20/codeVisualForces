@@ -29,8 +29,8 @@ app.get('/api/ratings/:handle', async (req, res) => {
     try {
         const userHandle = req.params.handle;
         let userRatings = await axios.get(`https://codeforces.com/api/user.rating?handle=${userHandle}`);
+
         const {status, result} = userRatings.data;
-        console.log(result);
         if(status === 'OK') {
             res.status(200).send(result);
         } else {
