@@ -13,7 +13,6 @@ app.get('/api/userinfo/:handle', async (req, res) => {
        let profileData = await axios.get(`https://codeforces.com/api/user.info?handles=${userHandle}`);
        
        const { status, result } = profileData.data;
-       console.log(status);
        if(status === 'OK') {
            res.status(200).send(result);
        } else {
