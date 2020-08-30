@@ -23,6 +23,24 @@ app.get('/api/userinfo/:handle', async (req, res) => {
     }
 });
 
+// User ratings
+
+app.get('/api/ratings/:handle', async (req, res) => {
+    try {
+        const userHandle = req.params.handle;
+        let userRatings = await axios.get(`https://codeforces.com/api/user.rating?handle=${userHandle}`);
+
+        const {status, result} = userRatings.data;
+        if(status === 'OK') {
+            res.status(200).send(result);
+        } else {
+            res.status(400).send({msg: 'Can\'t find ratings of the user'});
+        }
+
+    } catch (err) {
+        res.status(500).send({msg: 'Can\'t find ratings of the user'});
+    }
+});
 
 
 app.listen(port, () => console.log(`Server running on port ${port} 🔥`));
