@@ -1,3 +1,8 @@
+.container {
+    text-align: center;
+}
+
 .margin {
-    margin-left: 40%;
+    display: inline-block;
+    margin: 0 auto;
 }
