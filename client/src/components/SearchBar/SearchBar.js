@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
 import classes from './SearchBar.module.css';
+import UserDetails from './UserDetails/UserDetails';
 import RatingsGraph from './RatingsGraph/RatingsGraph';
 import axios from 'axios'
 
@@ -20,8 +21,7 @@ export default function SearchBar() {
       try {
         let data1 = await axios.get(`/api/userinfo/${handle}`);
         let data2 = await axios.get(`/api/ratings/${handle}`);
-
-        setValue({...value, userData: data1.data, ratingsData: data2.data});
+        setValue({...value, userData: data1.data[0], ratingsData: data2.data});
       } catch (error) {
         console.error(error);
       }
@@ -45,6 +45,7 @@ export default function SearchBar() {
         </form>
         </div>
         <br />
+      {userData?<UserDetails details={userData}/>:<p>No data available</p>}
       </div>
       <RatingsGraph ratingsData={ratingsData} />
       </div>
