@@ -4,18 +4,32 @@ import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
 import classes from './SearchBar.module.css';
+import RatingsGraph from './RatingsGraph/RatingsGraph';
+import axios from 'axios'
 
 export default function SearchBar() {
-    const [value, setValue] = useState({handle: "tourist"});
-    const {handle} = value;
+    const [value, setValue] = useState({
+      handle: "tourist",
+      userData: '',
+      ratingsData:[]
+    });
+    const {handle, userData, ratingsData} = value;
     const onChange = e => setValue({...value, [e.target.name]: e.target.value});
     const onSubmit = async (e) => {
       e.preventDefault();
-      console.log(handle);
+      try {
+        let data1 = await axios.get(`/api/userinfo/${handle}`);
+        let data2 = await axios.get(`/api/ratings/${handle}`);
+
+        setValue({...value, userData: data1.data, ratingsData: data2.data});
+      } catch (error) {
+        console.error(error);
+      }
     }
     
 
     return (
+      <div>
       <div className={classes.container}>
         <div className={classes.margin}>
         <form onSubmit={e => onSubmit(e)}>
@@ -30,6 +44,10 @@ export default function SearchBar() {
           </Grid>
         </form>
         </div>
-    </div>
+        <br />
+      </div>
+      <RatingsGraph ratingsData={ratingsData} />
+      </div>
+      
     );
   }
