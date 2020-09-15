@@ -10,7 +10,7 @@ import axios from 'axios'
 
 export default function SearchBar() {
     const [value, setValue] = useState({
-      handle: "tourist",
+      handle: "saiyan_01",
       userData: '',
       ratingsData:[]
     });

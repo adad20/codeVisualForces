@@ -1,10 +1,10 @@
 .container {
     display: block;
     text-align: center;
-    width: 80%;
+    width: 50%;
     margin: 0 auto;
     border: 0.1em;
-    border-color: #fff;
+    border-color: rgb(253, 141, 141);
     border-style: dashed;
     margin-top: 1em;
 }

@@ -9,7 +9,12 @@ const RatingsGraph = ({ratingsData}) => {
         return e.contestId
     });
     let ratings = ratingsData.map((e) => {
-        return e.newRating
+        let data = {
+            x: e.contestId,
+            myProperty: e.contestName,
+            y: e.newRating
+        }
+        return data;
     })
 
     const data = {
@@ -17,21 +22,23 @@ const RatingsGraph = ({ratingsData}) => {
         datasets:[ 
             {
                 label: 'Ratings',
-                data: ratings
+                data: ratings,
             }
         ]        
     }
-    console.log(data);
+    console.log(ratings);
     // const {}
     return (
-        <div>
+        <div className={Classes.container}>
+        <div className={Classes.chart}>
             <Line
                 data={data}
-                width={30}
-                height={10}
-                options={{ }}
+                width={50}
+                height={20}
+                options={{}}
                 className={Classes.chart}
             />
+        </div>
         </div>
     )
 };
