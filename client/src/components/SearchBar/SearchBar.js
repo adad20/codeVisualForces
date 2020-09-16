@@ -11,22 +11,14 @@ import axios from 'axios'
 export default function SearchBar() {
     const [value, setValue] = useState({
       handle: "saiyan_01",
-      userData: '',
-      ratingsData:[]
+      loading: true
     });
-    const {handle, userData, ratingsData} = value;
+    const {handle, userData, ratingsData, loading} = value;
     const onChange = e => setValue({...value, [e.target.name]: e.target.value});
     const onSubmit = async (e) => {
       e.preventDefault();
-      try {
-        let data1 = await axios.get(`/api/userinfo/${handle}`);
-        let data2 = await axios.get(`/api/ratings/${handle}`);
-        setValue({...value, userData: data1.data[0], ratingsData: data2.data});
-      } catch (error) {
-        console.error(error);
-      }
+      setValue({...value, loading: false});
     }
-    
 
     return (
       <div>
@@ -45,9 +37,9 @@ export default function SearchBar() {
         </form>
         </div>
         <br />
-      {userData?<UserDetails details={userData}/>:<p>No data available</p>}
+      {!loading?<UserDetails handle={handle}/>:<p>No data available</p>}
       </div>
-      <RatingsGraph ratingsData={ratingsData} />
+      {loading ? '' : <RatingsGraph handle={handle} />}
       </div>
       
     );

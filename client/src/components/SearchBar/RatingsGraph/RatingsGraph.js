@@ -1,38 +1,56 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Line } from 'react-chartjs-2';
+import axios from 'axios';
 import Classes from './RatingsGraph.module.css'
 
-const RatingsGraph = ({ratingsData}) => {
-    // console.log(ratingsData);
-    
-    let label = ratingsData.map((e) => {
-        return e.contestId
+const RatingsGraph = ({handle}) => {
+    let [details, setDetails] = useState({
+        label: null,
+        ratings: null
     });
-    let ratings = ratingsData.map((e) => {
-        let data = {
-            x: e.contestId,
-            myProperty: e.contestName,
-            y: e.newRating
-        }
-        return data;
-    })
 
-    const data = {
+    let {label, ratings} = details;
+
+    useEffect(() => {
+      async function fetchData() {
+        try {
+          let json = await axios.get(`/api/ratings/${handle}`);
+          let tlabel = json.data.map((e) => {
+              return e.contestId;
+          });
+          let tratings = json.data.map((e) => {
+            let data = {
+                x: e.contestId,
+                myProperty: e.contestName,
+                y: e.newRating
+            }
+            return data;
+          });
+
+          setDetails({label: tlabel, ratings:tratings});
+
+        } catch (err) {
+          console.error(err);
+        }
+      }
+      fetchData();
+    }, []);
+    
+    let dataSet = {
         labels: label,
         datasets:[ 
             {
                 label: 'Ratings',
                 data: ratings,
             }
-        ]        
+        ]   
     }
-    console.log(ratings);
-    // const {}
+    
     return (
         <div className={Classes.container}>
         <div className={Classes.chart}>
             <Line
-                data={data}
+                data={dataSet}
                 width={50}
                 height={20}
                 options={{}}

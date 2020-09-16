@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Classes from "./UserDetails.module.css";
+import axios from 'axios';
 
-const UserDetails = ({ details }) => {
-//   console.log(details);
+const UserDetails = ({ handle }) => {
+  let [details, setDetails] = useState({});
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        let json = await axios.get(`/api/userinfo/${handle}`);
+        setDetails(json.data[0]);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    fetchData();
+  }, []);
+  
   return (
     <div className={Classes.container}>
       <div className={Classes.block1}>
