@@ -34,7 +34,7 @@ const RatingsGraph = ({handle}) => {
         }
       }
       fetchData();
-    }, []);
+    }, [handle]);
     
     let dataSet = {
         labels: label,

@@ -42,5 +42,23 @@ app.get('/api/ratings/:handle', async (req, res) => {
     }
 });
 
+// User submissions
+
+app.get('/api/submissions/:handle', async (req, res) => {
+    try {
+        const userHandle = req.params.handle;
+        let submissions = await axios.get(`https://codeforces.com/api/user.status?handle=${userHandle}`);
+
+        const {status, result} = submissions.data;
+        if(status === 'OK') {
+            res.send(submissions.data);
+        } else {
+            res.status(400).send({msg: 'Can\'t find submissions of the user'});
+        }
+    } catch (err) {
+        res.status(500).send({msg: 'Can\'t find submissions of user'})
+    }
+});
+
 
 app.listen(port, () => console.log(`Server running on port ${port} 🔥`));
