@@ -16,6 +16,8 @@ const UserDetails = ({ handle }) => {
     }
     fetchData();
   }, [handle]);
+
+
   
   return (
     <div className={Classes.container}>
