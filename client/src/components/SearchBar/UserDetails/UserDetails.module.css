@@ -1,0 +1,21 @@
+.container {
+    display: block;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    border: 0.1em;
+    border-color: rgb(253, 141, 141);
+    border-style: dashed;
+    margin-top: 1em;
+}
+.block1{
+    display: inline-block;
+    width: 40%;
+    padding: 2em;;
+}
+
+.block2 {
+    display: inline-block;
+    width: 40%;
+    padding: 2em;
+}

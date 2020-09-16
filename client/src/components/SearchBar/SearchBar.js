@@ -4,18 +4,24 @@ import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
 import classes from './SearchBar.module.css';
+import UserDetails from './UserDetails/UserDetails';
+import RatingsGraph from './RatingsGraph/RatingsGraph';
+import axios from 'axios'
 
 export default function SearchBar() {
-    const [value, setValue] = useState({handle: "tourist"});
-    const {handle} = value;
+    const [value, setValue] = useState({
+      handle: "saiyan_01",
+      loading: true
+    });
+    const {handle, userData, ratingsData, loading} = value;
     const onChange = e => setValue({...value, [e.target.name]: e.target.value});
     const onSubmit = async (e) => {
       e.preventDefault();
-      console.log(handle);
+      setValue({...value, loading: false});
     }
-    
 
     return (
+      <div>
       <div className={classes.container}>
         <div className={classes.margin}>
         <form onSubmit={e => onSubmit(e)}>
@@ -30,6 +36,11 @@ export default function SearchBar() {
           </Grid>
         </form>
         </div>
-    </div>
+        <br />
+      {!loading?<UserDetails handle={handle}/>:<p>No data available</p>}
+      </div>
+      {loading ? '' : <RatingsGraph handle={handle} />}
+      </div>
+      
     );
   }
