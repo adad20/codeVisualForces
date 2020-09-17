@@ -7,6 +7,8 @@ import classes from './SearchBar.module.css';
 import UserDetails from './UserDetails/UserDetails';
 import RatingsGraph from './RatingsGraph/RatingsGraph';
 import Submissions from './Submissions/Submissions';
+import axios from 'axios'
+
 
 export default function SearchBar() {
     const [value, setValue] = useState({
@@ -19,7 +21,7 @@ export default function SearchBar() {
       e.preventDefault();
       setValue({...value, loading: false});
     }
-    console.log(handle);
+
     return (
       <div>
       <div className={classes.container}>
@@ -42,6 +44,7 @@ export default function SearchBar() {
       {loading ? '' : <RatingsGraph handle={handle} />}
       <br />
       {loading ? '' : <Submissions handle={handle} />}
+
       </div>
       </div>
       
