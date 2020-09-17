@@ -31,10 +31,10 @@ const UserDetails = ({ handle }) => {
           <p>Country: {details.country}</p>
         </div>
         <div className={Classes.ranking}>
-          <p>Rank: {details.rank}</p>
+          <p>Title: {details.rank}</p>
         </div>
         <div className={Classes.maxranking}>
-          <p>MaxRank: {details.maxRank}</p>
+          <p>MaxTitle: {details.maxRank}</p>
         </div>
       </div>
       <div className={Classes.block2}>
