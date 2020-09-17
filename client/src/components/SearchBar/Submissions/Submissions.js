@@ -19,10 +19,12 @@ const Submissions = ({ handle }) => {
         let wac = 0,
           acc = 0,
           tlec = 0;
-        let submissions = temp.data.result.map((e) => {
+          temp.data.result.map((e) => {
           if (e.verdict === "OK") acc++;
           else if (e.verdict === "WRONG_ANSWER") wac++;
           else if (e.verdict === "TIME_LIMIT_EXCEEDED") tlec++;
+
+          return null;
         });
 
         setData({WA: wac, AC: acc, TLE: tlec });

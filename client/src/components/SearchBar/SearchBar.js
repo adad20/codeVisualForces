@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -8,7 +8,6 @@ import UserDetails from './UserDetails/UserDetails';
 import RatingsGraph from './RatingsGraph/RatingsGraph';
 import Submissions from './Submissions/Submissions';
 import RankingGraph from './RankingGraph/RankingGraph';
-import axios from 'axios'
 
 
 export default function SearchBar() {
@@ -16,7 +15,7 @@ export default function SearchBar() {
       handle: "saiyan_01",
       loading: true
     });
-    const {handle, userData, ratingsData, loading} = value;
+    const {handle, loading} = value;
     const onChange = e => setValue({...value, [e.target.name]: e.target.value});
     const onSubmit = async (e) => {
       e.preventDefault();

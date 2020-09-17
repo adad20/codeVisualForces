@@ -22,7 +22,7 @@ const RankingGraph = ({handle}) => {
                     return e.rank;
                 });
                 
-                setData({...data, contests:labe, ranks: rank});
+                setData({contests:labe, ranks: rank});
                 
             } catch (err) {
                 console.error(err);
@@ -37,7 +37,23 @@ const RankingGraph = ({handle}) => {
             {
                 label: 'Ranking',
                 data: ranks,
-            }
+                options : {
+                    scales: {
+                      yAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'Y text'
+                        }
+                      }],
+                      xAxes: [{
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'X text'
+                        }
+                      }],
+                    }     
+                  }
+            },
         ]   
     }
     

@@ -1,21 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
 .container {
     display: block;
     text-align: center;
     width: 50%;
     margin: 0 auto;
     border: 0.1em;
-    border-color: rgb(253, 141, 141);
-    border-style: dashed;
-    margin-top: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-style: line;
+    margin-top: 2em;
 }
 .block1{
     display: inline-block;
     width: 40%;
-    padding: 2em;;
+    padding: 2em;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .block2 {
     display: inline-block;
     width: 40%;
     padding: 2em;
+    font-family: 'Montserrat', sans-serif;
 }
