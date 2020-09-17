@@ -2,7 +2,8 @@
     text-align: center;
 }
 
-.margin {
+.graph {
+    width: 50%;
     display: inline-block;
     margin: 0 auto;
 }

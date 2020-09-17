@@ -6,7 +6,9 @@ import Button from '@material-ui/core/Button';
 import classes from './SearchBar.module.css';
 import UserDetails from './UserDetails/UserDetails';
 import RatingsGraph from './RatingsGraph/RatingsGraph';
+import Submissions from './Submissions/Submissions';
 import axios from 'axios'
+
 
 export default function SearchBar() {
     const [value, setValue] = useState({
@@ -38,8 +40,12 @@ export default function SearchBar() {
         </div>
         <br />
       {!loading?<UserDetails handle={handle}/>:<p>No data available</p>}
-      </div>
+
       {loading ? '' : <RatingsGraph handle={handle} />}
+      <br />
+      {loading ? '' : <Submissions handle={handle} />}
+
+      </div>
       </div>
       
     );
