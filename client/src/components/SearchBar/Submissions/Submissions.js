@@ -37,21 +37,31 @@ const Submissions = ({ handle }) => {
     labels: ["AC", "WA", "TLE"],
     datasets: [
       {
-        label: "Submissions",
+        label: ["Submissions"],
         data: [AC, WA, TLE],
+        backgroundColor: ['rgba(129, 178, 20, 0.5)', 'rgba(236, 1, 1, 0.5)', 'rgba(253, 219, 58, 0.5)']
       },
+      // {
+      //   label: "WA",
+      //   data: [WA],
+      //   backgroundColor: 'rgba(236, 1, 1, 1)'
+      // },
+      // {
+      //   label: "TLE",
+      //   data: [TLE],
+      //   backgroundColor: 'rgba(253, 219, 58, 1)'
+      // },
     ],
   };
 
   return (
     <div className={Classes.container}>
+    <div className={Classes.graph} >
       <Bar
-        data={dataSet}
-        width={50}
-        height={20}
-        options={{}}
-        className={Classes.graph}
-      />
+          data={dataSet}
+          options={{}}
+        />
+    </div>
     </div>
   );
 };

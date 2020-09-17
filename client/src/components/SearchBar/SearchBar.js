@@ -38,9 +38,11 @@ export default function SearchBar() {
         </div>
         <br />
       {!loading?<UserDetails handle={handle}/>:<p>No data available</p>}
-      </div>
+
       {loading ? '' : <RatingsGraph handle={handle} />}
+      <br />
       {loading ? '' : <Submissions handle={handle} />}
+      </div>
       </div>
       
     );
