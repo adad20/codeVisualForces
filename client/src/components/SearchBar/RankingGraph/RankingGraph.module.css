@@ -1,0 +1,10 @@
+.container {
+    text-align: center;
+}
+
+.graph {
+    width: 50%;
+    height: 10%;
+    margin: 0 auto;
+    display: inline-block;
+}

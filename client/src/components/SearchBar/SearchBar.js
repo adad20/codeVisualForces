@@ -7,6 +7,7 @@ import classes from './SearchBar.module.css';
 import UserDetails from './UserDetails/UserDetails';
 import RatingsGraph from './RatingsGraph/RatingsGraph';
 import Submissions from './Submissions/Submissions';
+import RankingGraph from './RankingGraph/RankingGraph';
 import axios from 'axios'
 
 
@@ -44,6 +45,8 @@ export default function SearchBar() {
       {loading ? '' : <RatingsGraph handle={handle} />}
       <br />
       {loading ? '' : <Submissions handle={handle} />}
+      <br />
+      {loading ? '' : <RankingGraph handle={handle} />}
 
       </div>
       </div>
