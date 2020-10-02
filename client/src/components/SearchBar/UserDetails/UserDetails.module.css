@@ -9,6 +9,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-style: line;
     margin-top: 2em;
+    color: rgb(0, 74, 117);
 }
 .block1{
     display: inline-block;

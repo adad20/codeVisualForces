@@ -1,5 +1,5 @@
 import React from "react";
-import {AppBar, Toolbar, IconButton, Typography} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Typography, Button} from '@material-ui/core';
 
 
 const Navbar = () => {
@@ -17,6 +17,7 @@ const Navbar = () => {
           <Typography variant="h6" color="inherit">
             CodeVisualForces
           </Typography>
+        <Button color="inherit">Compare</Button>
         </Toolbar>
       </AppBar>
     </div>
