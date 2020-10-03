@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Classes from "./UserDetails.module.css";
 import axios from 'axios';
+import { Box, Card, CardContent, Container } from "@material-ui/core";
 
 const UserDetails = ({ handle }) => {
   let [details, setDetails] = useState({});
@@ -20,40 +21,68 @@ const UserDetails = ({ handle }) => {
 
   
   return (
-    <div className={Classes.container}>
-      <div className={Classes.block1}>
-        <div className={Classes.name}>
-          <p>
-            Name: {details.firstName} {details.lastName}
-          </p>
-        </div>
-        <div className={Classes.country}>
-          <p>Country: {details.country}</p>
-        </div>
-        <div className={Classes.ranking}>
-          <p>Title: {details.rank}</p>
-        </div>
-        <div className={Classes.maxranking}>
-          <p>MaxTitle: {details.maxRank}</p>
-        </div>
-      </div>
-      <div className={Classes.block2}>
-        <div className={Classes.rating}>
-          <p>
-            Rating: {details.rating}
-          </p>
-        </div>
-        <div className={Classes.maxrating}>
-          <p>MaxRating: {details.maxRating}</p>
-        </div>
-        <div className={Classes.ranking}>
-          <p>Friend of {details.friendOfCount} users</p>
-        </div>
-        <div className={Classes.maxranking}>
-          <p>Contributions: {details.contribution}</p>
-        </div>
-      </div>
-    </div>
+    <Container>
+      <Box boxShadow={5}>
+        <Card>
+          <CardContent>
+            <Box display="flex" justifyContent="space-between">
+              <Box flex={2}>
+                <Box display="flex" flexDirection="column">
+                  <span>Name</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.firstName} {details.lastName}
+                  </span>
+                </Box>
+                <Box display="flex" flexDirection="column" mt={2}>
+                  <span>Country</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.country}
+                  </span>
+                </Box>
+                <Box display="flex" flexDirection="column" mt={2}>
+                  <span>Title</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.rank}
+                  </span>
+                </Box>
+                <Box display="flex" flexDirection="column" mt={2}>
+                  <span>MaxTitle</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.maxRank}
+                  </span>
+                </Box>
+              </Box>
+              <Box flex={1}>
+                <Box display="flex" flexDirection="column">
+                  <span>Rating</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.rating}
+                  </span>
+                </Box>
+                <Box display="flex" flexDirection="column" mt={2}>
+                  <span>MaxRating</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.maxRating}
+                  </span>
+                </Box>
+                <Box display="flex" flexDirection="column" mt={2}>
+                  <span>Friend</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.friendOfCount}
+                  </span>
+                </Box>
+                <Box display="flex" flexDirection="column" mt={2}>
+                  <span>Contributions</span>
+                  <span style={{fontWeight:'bold'}}>
+                    {details.contribution}
+                  </span>
+                </Box>
+              </Box>
+            </Box>
+          </CardContent>
+        </Card>
+      </Box>
+    </Container>
   );
 };
 

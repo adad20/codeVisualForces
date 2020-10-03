@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import Classes from "./Submissions.module.css";
+import { Box, Card, CardContent, Container } from "@material-ui/core";
 
 const Submissions = ({ handle }) => {
   const [data, setData] = useState({
@@ -47,14 +48,18 @@ const Submissions = ({ handle }) => {
   };
 
   return (
-    <div className={Classes.container}>
-    <div className={Classes.graph} >
-      <Bar
-          data={dataSet}
-          options={{}}
-        />
-    </div>
-    </div>
+    <Container>
+      <Box boxShadow={5}>
+        <Card>
+          <CardContent>
+            <Bar
+                data={dataSet}
+                options={{}}
+              />
+          </CardContent>
+        </Card>
+      </Box>
+    </Container>
   );
 };
 
