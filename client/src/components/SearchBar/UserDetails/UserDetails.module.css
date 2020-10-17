@@ -3,7 +3,7 @@
 .container {
     display: block;
     text-align: center;
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     border: 0.1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -11,16 +11,23 @@
     margin-top: 2em;
     color: rgb(0, 74, 117);
 }
-.block1{
+
+.block1 {
+
     display: inline-block;
-    width: 40%;
-    padding: 2em;
+    width: 80%;
+    padding: 1.5em 2em 1.5em 1.5em;
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    text-align: center;
 }
 
 .block2 {
+
     display: inline-block;
-    width: 40%;
-    padding: 2em;
+    width: 80%;
+    padding: 1.5em 2em 1.5em 1.5em;
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    text-align: center;
 }
