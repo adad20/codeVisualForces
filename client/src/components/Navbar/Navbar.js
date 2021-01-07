@@ -10,9 +10,7 @@ const Navbar = () => {
           <IconButton
             edge="start"
             color="inherit"
-            aria-label="menu"
-          >
-           
+            aria-label="menu">
           </IconButton>
           <Typography variant="h6" color="inherit">
             CodeVisualForces

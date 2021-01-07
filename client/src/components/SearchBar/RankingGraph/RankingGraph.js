@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Classes from './RankingGraph.module.css';
 import {Line} from 'react-chartjs-2';
+import { Box, Card, CardContent, Container } from '@material-ui/core';
 
 const RankingGraph = ({handle}) => {
     let [data, setData] = useState({
@@ -58,11 +59,15 @@ const RankingGraph = ({handle}) => {
     }
     
     return (
-        <div className={Classes.container}>
-            <div className={Classes.graph}>
-                <Line data={dataSet} width={50} height={25} options={{}} />
-            </div>
-        </div>
+        <Container>
+            <Box boxShadow={5}>
+                <Card>
+                    <CardContent>       
+                        <Line data={dataSet} width={50} height={25} options={{}} />
+                    </CardContent>
+                </Card>
+            </Box>
+        </Container>
     )
 };
 
