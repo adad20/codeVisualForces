@@ -12,7 +12,7 @@ import RankingGraph from './RankingGraph/RankingGraph';
 
 export default function SearchBar() {
     const [value, setValue] = useState({
-      handle: "saiyan_01",
+      handle: "Zeno_orz",
       loading: true
     });
     const {handle, loading} = value;
