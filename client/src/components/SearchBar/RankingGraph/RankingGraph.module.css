@@ -1,11 +1,11 @@
 .container {
-    text-align: center;
+    display: inline-block;
+    width: 60%;
+    height: 10%;
+    margin-top: 2em;
 }
 
 .graph {
-    width: 50%;
-    height: 10%;
-    margin: 0 auto;
-    display: inline-block;
+    text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
