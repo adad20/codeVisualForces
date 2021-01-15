@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 import Classes from "./Submissions.module.css";
+import { Box, Card, CardContent, Container } from "@material-ui/core";
 
 const Submissions = ({ handle }) => {
   const [data, setData] = useState({

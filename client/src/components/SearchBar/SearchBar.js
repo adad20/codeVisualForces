@@ -8,7 +8,7 @@ import UserDetails from './UserDetails/UserDetails';
 import RatingsGraph from './RatingsGraph/RatingsGraph';
 import Submissions from './Submissions/Submissions';
 import RankingGraph from './RankingGraph/RankingGraph';
-
+import { Box, Container } from '@material-ui/core';
 
 export default function SearchBar() {
     const [value, setValue] = useState({
@@ -24,30 +24,32 @@ export default function SearchBar() {
 
     return (
       <div>
-      <div className={classes.container}>
-        <div className={classes.margin}>
-        <form onSubmit={e => onSubmit(e)}>
-        <Grid container spacing={1} alignItems="flex-end">
-            <Grid item>
-              <AccountCircle />
-            </Grid>
-            <Grid item>
-              <TextField id="input-with-icon-grid" value={handle} name="handle" onChange={e => onChange(e)}/>
-            </Grid>
-            <Button type="submit" variant="contained" color="primary">Submit</Button>
-          </Grid>
-        </form>
-        </div>
-        <br />
-      {!loading?<UserDetails handle={handle}/>:<p>No data available</p>}
-
-      {loading ? '' : <RatingsGraph handle={handle} />}
-      <br />
-      {loading ? '' : <Submissions handle={handle} />}
-      <br />
-      {loading ? '' : <RankingGraph handle={handle} />}
-
-      </div>
+        <Container maxWidth="sm">
+          <Box paddingBottom={10}>
+            <Box my={4} mx={2}>
+              <form onSubmit={e => onSubmit(e)}>
+                <Box display="flex" justifyContent="space-between">
+                  <AccountCircle height={50} width={50}/>
+                  <TextField 
+                    fullWidth="100%" 
+                    style={{marginLeft:20,marginRight:20}}
+                    id="input-with-icon-grid" 
+                    value={handle} name="handle" onChange={e => onChange(e)}/>
+                  <Button type="submit" variant="contained" color="primary">Submit</Button>
+                </Box>
+              </form>
+            </Box>
+            
+            <Box mt={5}></Box>
+            {!loading?<UserDetails handle={handle}/>:<center>No data available</center>}
+            <Box mt={5}></Box>
+            {loading ? '' : <RatingsGraph handle={handle} />}
+            <Box mt={5}></Box>
+            {loading ? '' : <Submissions handle={handle} />}
+            <Box mt={5}></Box>
+            {loading ? '' : <RankingGraph handle={handle} />}
+          </Box>
+        </Container>
       </div>
       
     );
