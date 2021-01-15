@@ -3,7 +3,7 @@
 .container {
     display: block;
     text-align: center;
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
     border: 0.1em;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -15,19 +15,19 @@
 .block1 {
 
     display: inline-block;
-    /* width: 80%; */
+    width: 40%;
     padding: 1.5em 2em 1.5em 1.5em;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
+    font-size: 1rem;
     text-align: center;
 }
 
 .block2 {
 
     display: inline-block;
-    /* width: 80%; */
+    width: 40%;
     padding: 1.5em 2em 1.5em 1.5em;
     font-family: 'Montserrat', sans-serif;
-    font-size: 0.6rem;
+    font-size: 1rem;
     text-align: center;
 }
